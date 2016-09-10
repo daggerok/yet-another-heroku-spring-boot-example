@@ -7,4 +7,3 @@ classes
 *.ipl
 webapps
 .gradle
-gradle*

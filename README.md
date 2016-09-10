@@ -1,5 +1,5 @@
-heroku java
-===========
+yet-another-heroku-spring-boot-example [![build](https://travis-ci.org/daggerok/yet-another-heroku-spring-boot-example.svg?branch=master)](https://travis-ci.org/daggerok/yet-another-heroku-spring-boot-example)
+======================================
 
 ```fish
 heroku login
@@ -15,6 +15,5 @@ touch Procfile
 heroku apps:create daggerok
 git push heroku master
 ... wait for ....
-heroku open # or open https:/daggerok.heroku.com
+heroku open # or open https://daggerok.heroku.com
 ```
-
