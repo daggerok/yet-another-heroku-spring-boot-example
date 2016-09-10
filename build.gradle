@@ -1,0 +1,48 @@
+buildscript {
+  dependencies { repositories { jcenter() }
+    classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE'
+  }
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+jar {
+  baseName = 'app'
+}
+
+// heroku start
+task stage {
+  dependsOn build
+}
+// heroku end
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories { jcenter() }
+
+configurations { providedRuntime }
+
+dependencies {
+  compile 'org.springframework.boot:spring-boot-starter-mustache',
+          'org.projectlombok:lombok'
+
+  testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+// create bash gralew script by running `gradle wrapper`
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.0'
+}
+
+// bash webapps/ROOT.war
+springBoot {
+  executable = true
+}
+
+// devtools
+bootRun {
+  addResources = true
+}
